@@ -2016,7 +2016,7 @@ const MovieCards = () => {
                 year = {movieItems.year}
                 director = {movieItems.director}
                 duration = {movieItems.duration}
-                genre = {movieItems.genre}
+                genre = {(movieItems.genre).join(" , ")}
                 rate = {movieItems.rate}
                 />
         })}
