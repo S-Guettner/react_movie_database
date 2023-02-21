@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import MovieCardsData from "../movieCardsData/MovieCardsData";
 
 const movies = [
@@ -2010,6 +2011,7 @@ const MovieCards = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {movies.map((movieItems) =>{
                 return <MovieCardsData 
+                key = {uuidv4()}
                 title = {movieItems.title}
                 year = {movieItems.year}
                 director = {movieItems.director}
