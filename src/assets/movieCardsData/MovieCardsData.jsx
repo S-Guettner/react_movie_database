@@ -1,6 +1,6 @@
 const MovieCardsData = (props) => {
     return ( 
-        <div className="text-center bg-slate-500 text-white pt-4">
+        <div className="text-center bg-slate-500 text-white pt-2">
             <p>{props.title}</p>
             <p>{props.year}</p>
             <p>{props.director}</p>
