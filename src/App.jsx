@@ -1,4 +1,4 @@
-import MovieCards from "./assets/moviecards/MovieCards"
+import MovieCards from "./components/moviecards/MovieCards"
 
 function App() {
 
