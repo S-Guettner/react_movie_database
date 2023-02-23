@@ -2037,24 +2037,11 @@ const MovieCards = () => {
     return (
         <div>
             <div className="flex justify-around m-4 text-white bg-gray-700 p-2">
-                <button
-                    onClick={sortDateAscending}
-                    className="border-2 p-2"
-                >
-                    Sort by Date Ascending
-                </button>
-                <button onClick={sortDateDescending} className="border-2 p-2">
-                    Sort by Date Descending
-                </button>
-                <button onClick={sortRateDescending} className="border-2 p-2">
-                    Best Rate
-                </button>
-                <button onClick={sortFromAtoZ} className="border-2 p-2">
-                    A-Z
-                </button>
-                <button onClick={sortFromZtoA} className="border-2 p-2">
-                    Z-A
-                </button>
+                <button onClick={sortDateAscending}className="border-2 p-2">Sort by Date Ascending</button>
+                <button onClick={sortDateDescending} className="border-2 p-2">Sort by Date Descending</button>
+                <button onClick={sortRateDescending} className="border-2 p-2">Best Rate</button>
+                <button onClick={sortFromAtoZ} className="border-2 p-2">A-Z</button>
+                <button onClick={sortFromZtoA} className="border-2 p-2">Z-A</button>
             </div>
 
             <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
