@@ -2008,12 +2008,15 @@ const movies = [
 
 
 const MovieCards = () => {
-
-    const [sortedMoviesArr,sortMovies] = useState(movies)
+    //    [state to change , change to(?)] = useState(default state)
+    const [sortedMoviesArr,sortMovies] = useState(movies);
+    //copy of movies arr
     const moviesArrCopy = [...sortedMoviesArr];
 
     const sortDateAscending = () => {
+        //sort copy of movies arr
         moviesArrCopy.sort((a, b) => a.year - b.year);
+        //change state to sorted arr copy
         sortMovies(moviesArrCopy);
     };
     const sortDateDescending = () => {
@@ -2037,7 +2040,8 @@ const MovieCards = () => {
     return (
         <div>
             <div className="flex justify-around m-4 text-white bg-gray-700 p-2">
-                <button onClick={sortDateAscending}className="border-2 p-2">Sort by Date Ascending</button>
+                {/* trigger function that changes state */}
+                <button onClick={sortDateAscending} className="border-2 p-2">Sort by Date Ascending</button>
                 <button onClick={sortDateDescending} className="border-2 p-2">Sort by Date Descending</button>
                 <button onClick={sortRateDescending} className="border-2 p-2">Best Rate</button>
                 <button onClick={sortFromAtoZ} className="border-2 p-2">A-Z</button>
@@ -2045,7 +2049,8 @@ const MovieCards = () => {
             </div>
 
             <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-                {moviesArrCopy.map((movieItems) => {
+                {/* map over current state */}
+                {sortedMoviesArr.map((movieItems) => {
                     return (
                         <MovieCardsData
                             key={uuidv4()}
