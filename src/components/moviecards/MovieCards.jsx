@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import MovieCardsData from "../movieCardsData/MovieCardsData";
+import { useState } from 'react';
 
 const movies = [
     {
@@ -2008,27 +2009,38 @@ const movies = [
 
 const MovieCards = () => {
 
+    const [sortedMoviesArr,sortMovies] = useState(movies)
+    const moviesArrCopy = [...sortedMoviesArr];
+
     const sortDateAscending = () => {
-        movies.sort((a, b) => a.year - b.year);
+        moviesArrCopy.sort((a, b) => a.year - b.year);
+        sortMovies(moviesArrCopy);
     };
     const sortDateDescending = () => {
-        movies.sort((a,b) => b.year - a.year);
+        moviesArrCopy.sort((a, b) => b.year - a.year);
+        sortMovies(moviesArrCopy);
     };
     const sortRateDescending = () => {
-        movies.sort((a, b) => b.rate - a.rate);
+        moviesArrCopy.sort((a, b) => b.rate - a.rate);
+        sortMovies(moviesArrCopy);
     };
     const sortFromAtoZ = () => {
-        movies.sort((a, b) => a.title < b.title ? -1 : 1);
+        moviesArrCopy.sort((a, b) => (a.title < b.title ? -1 : 1));
+        sortMovies(moviesArrCopy);
     };
     const sortFromZtoA = () => {
-        movies.sort((a, b) => a.title > b.title ? -1 : 1);
+        moviesArrCopy.sort((a, b) => (a.title > b.title ? -1 : 1));
+        sortMovies(moviesArrCopy);
     };
     
     
     return (
         <div>
             <div className="flex justify-around m-4 text-white bg-gray-700 p-2">
-                <button onClick={sortDateAscending} className="border-2 p-2">
+                <button
+                    onClick={sortDateAscending}
+                    className="border-2 p-2"
+                >
                     Sort by Date Ascending
                 </button>
                 <button onClick={sortDateDescending} className="border-2 p-2">
@@ -2046,7 +2058,7 @@ const MovieCards = () => {
             </div>
 
             <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-                {movies.map((movieItems) => {
+                {moviesArrCopy.map((movieItems) => {
                     return (
                         <MovieCardsData
                             key={uuidv4()}
