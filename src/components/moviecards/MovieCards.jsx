@@ -2007,6 +2007,24 @@ const movies = [
 
 
 const MovieCards = () => {
+
+    const sortDateAscending = () => {
+        movies.sort((a, b) => a.year - b.year);
+    };
+    const sortDateDescending = () => {
+        movies.sort((a,b) => b.year - a.year);
+    };
+    const sortRateDescending = () => {
+        movies.sort((a, b) => b.rate - a.rate);
+    };
+    const sortFromAtoZ = () => {
+        movies.sort((a, b) => a.title < b.title ? -1 : 1);
+    };
+    const sortFromZtoA = () => {
+        movies.sort((a, b) => a.title > b.title ? -1 : 1);
+    };
+    
+    
     return ( 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {movies.map((movieItems) =>{
@@ -2019,10 +2037,10 @@ const MovieCards = () => {
                 genre = {(movieItems.genre).join(" , ")}
                 rate = {movieItems.rate}
                 />
-        })}
+        })};
         </div>
 
      );
-}
+};
  
 export default MovieCards;
